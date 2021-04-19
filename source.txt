@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Sets character-set to UTF-8 -->
+		<title>QrNim</title>
+		<link rel="stylesheet" href="https://scout-81.github.io/qr-nim/index.css">
+		<!-- If the internet is available download a CSS style sheet for this page-->
+		<script>
+			var pilePos = 0;// Sets a defined value for pilePos (pilePosition) globally
+
+			function move(num) {
+				aiMove = 4 - num;// Sets AI logic
+				window.pilePos = num + window.pilePos + aiMove;// Computes value of how many items are in the pile from what the player and AI inputed 
+
+				pileDisp = "";
+				pileDispRmved = "";
+				// The two lines above just set definitions for variables to be used later
+
+				if (window.pilePos > 12) {/*After all 12 items have been taken, the buttons would run this, however there is nothing here so the buttons are disabled*/}
+
+				else {
+
+					// Displays the stored pile information
+					for (let i=0; i < window.pilePos; ++i) {
+						// For all the removed items, add a - to the screen buffer variable
+						pileDispRmved = pileDispRmved + "-";
+					}
+
+					for (let i=0; i < 12-window.pilePos; ++i) {
+						// For the rest of the untouched items, up until 12, add a # to the screen buffer variable
+						pileDisp = pileDisp + "#";
+					}
+
+					document.getElementById("game").innerHTML = pileDispRmved + pileDisp;
+					// Add the removed items -, and the untouched items #, together and display it to the screen
+
+					// Win state logic
+					if (window.pilePos == 12 && window.pilePos - aiMove < 12) {
+						//If there has been 12 items removed from the pile, and the AI's move would have removed the last item, the AI has won
+						alert("You have lost to the BOT!");
+						reload();// Prompt the user to refresh
+					}
+					
+					else if (window.pilePos >= 12 && window.pilePos - aiMove >= 12) {
+						//If there has been 12 items removed from the pile, and the player's move would have removed the last item, the player has won, which is mathematically imposable. (If you don't believe me watch this video by Stand-up Maths (Matt Parker) on Dr. NIM  https://youtu.be/9KABcmczPdg)
+						alert("Congratulations, you have out smarted the BOT!");
+						reload();// Prompt the user to refresh
+					}
+				}// End of Else statment for overflow check
+			}//End of the move() function
+
+			function reload() {
+				if (window.confirm("Would you like to play again?") == true) {
+					// Asks the user if they want to refresh, if they click the ok button the page refreshes
+					window.location.reload(true);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="win">
+			<h2>QrNim</h2>
+			<h4>How to play:</h4>
+			<p>Nim has been played since at least the 16<sup>th</sup> century, and in it's time has had many versions. This version, you pick how many you want to remove from the "pile", ether 1 though 3. The last person to collect all of the pieces of the pile wins. You go first, the bots move is calculated at the same time your move is displayed and calculated.</p>
+			<hr>
+			<p id="game">############</p>
+			<!-- Everything in this section is normal garden variety HTML, however the <p> right above is the game window-->
+			<hr>
+			<button onclick="move(1)">1</button>
+			<button onclick="move(2)">2</button>
+			<button onclick="move(3)">3</button>
+			<!-- These buttons are the buttons the player interacts with to chose how many items to remove from the pile -->
+		</div>
+	</body>
+</html>
