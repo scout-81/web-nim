@@ -1,9 +1,9 @@
 # Web NIM
 
-This is a version of NIM that I coded, my self, with some help ;)
+This is a version of NIM that has an unbeatable bot algorithm
 
 The only code that needs attributed is the for loops, for displaying the game details, and how global variables work.
-Everything else is my own code.
+Everything else is original.
 
 * [For loops][for-loop]
 * [How global variables work in JS DOM][js-dom-vars]
@@ -25,14 +25,12 @@ This project was originally supposed to be a QR code game, where all of the HTML
 Unfortunately, I was never able to get the HTML to display in the browser with "data:text/html," in the address bar.
 I also tried base64 encoded text with "data:text/html;base64," but didn't work either.
 
-If you know how you could fix this, please fork this repository.
+If you know how you could fix this, please fork this repository and submit a pull request..
 
 
 I include the source code with comments so editing this should be easy.
 There is a compressed, less human readable version that is almost 3 times smaller in file size then source.
-That is the preferred version for transmission, over web, or any other means.
-
-Thats enough about me rambling on with QR codes.
+I would recommend the compressed version for transmission, over web, or any other means.
 
 * * *
 
@@ -58,15 +56,14 @@ Here is a truth table of player moves and AI moves
 | 2 | 2 |
 | 3 | 1 |
 
-The main way of winning Nim is to let your opponent go first, and follow the table above, if your opponent takes 2, you take 2. The main way of thinking of this is to split up the pile in to 3 sections with 4 each. #### #### #### Like that. Unfortunately for you, it's imposable to win against the bot.
+The main way of winning Nim is to let your opponent go first, and follow the table above, if your opponent takes 2, you take 2. The main way of thinking of this is to split up the pile in to 3 sections with 4 each. Like this #### #### ####. Unfortunately for you, it's imposable to win against anything using this algorithm.
 
 I may make a fork of this that won't play a perfect move on the first turn, meaning the player could have a chance at winning.
 
 * * *
 
-## Source Code?
-
-Source code is available in this repository, just look for "source.txt" in the Code section, or find it [here][page-source] on Github pages.
+## Source Code
+Source code is available in this repository, just look for "source.html" in the Code section, or find it [here][page-source].
 
 * * *
 
@@ -85,8 +82,8 @@ Source code is available in this repository, just look for "source.txt" in the C
 
 [for-loop]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Unexpected_token#not_enough_brackets
 [js-dom-vars]: https://www.w3schools.com/js/js_scope.asp
-[github-pages]: https://scout-81.github.io/web-nim/
+[github-pages]: https://scout-81.github.io/web-nim/nim.html
 [1]: https://en.wikipedia.org/wiki/Nim
 [dr-nim-vid]: https://youtu.be/9KABcmczPdg
-[page-source]: https://scout-81.github.io/web-nim/source.txt
+[page-source]: https://github.com/scout-81/web-nim/blob/main/source.html
 [2]: https://en.wikipedia.org/wiki/Dr._Nim
